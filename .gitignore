@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 # upload filder
-app/src/seed/
+# app/src/seed/
