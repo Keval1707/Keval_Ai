@@ -1,0 +1,142 @@
+[
+  {
+    "id":1,
+    "name": "Snake Plant",
+    "image": "./seed/images/1.jpg",
+    "description": "An easy-to-care-for houseplant with striking long, upright leaves.",
+    "price": 199.99,
+    "light": "Low to medium light",
+    "care": "Water sparingly, well-draining soil",
+    "height": "Up to 3 feet"
+  },
+  {
+    "id":2,
+    "name": "Peace Lily",
+    "image": "./seed/images/2.jpg",
+    "description": "A graceful plant with elegant white blooms, known for purifying indoor air.",
+    "price": 249.99,
+    "light": "Low to medium light",
+    "care": "Keep soil consistently moist",
+    "height": "Up to 2 feet"
+  },
+  {
+    "id":3,
+    "name": "ZZ Plant",
+    "image": "./seed/images/3.jpg",
+    "description": "A low-maintenance, durable plant with glossy, dark green leaves.",
+    "price": 299.99,
+    "light": "Low to bright indirect light",
+    "care": "Allow soil to dry between waterings",
+    "height": "Up to 2-3 feet"
+  },
+  {
+    "id":4,
+    "name": "Fiddle Leaf Fig",
+    "image": "./seed/images/4.jpg",
+    "description": "A popular indoor tree with large, violin-shaped leaves.",
+    "price": 399.99,
+    "light": "Bright, indirect light",
+    "care": "Water when top inch of soil is dry",
+    "height": "Up to 6 feet"
+  },
+  {
+    "id":5,
+    "name": "Aloe Vera",
+    "image": "./seed/images/5.jpg",
+    "description": "A succulent known for its medicinal properties, soothing sunburns and skin irritations.",
+    "price": 179.99,
+    "light": "Bright, indirect light",
+    "care": "Allow soil to dry between waterings",
+    "height": "Up to 1-2 feet"
+  },
+  {
+    "id":6,
+    "name": "Spider Plant",
+    "image": "./seed/images/6.jpg",
+    "description": "A resilient plant with arching leaves, often producing baby spider plants.",
+    "price": 149.99,
+    "light": "Indirect light",
+    "care": "Keep soil evenly moist",
+    "height": "Up to 2 feet"
+  },
+  {
+    "id":7,
+    "name": "Pothos",
+    "image": "./seed/images/7.jpg",
+    "description": "A trailing plant with heart-shaped leaves, suitable for hanging baskets.",
+    "price": 229.99,
+    "light": "Low to medium light",
+    "care": "Allow soil to dry between waterings",
+    "height": "Varies, can trail several feet"
+  },
+  {
+    "id":8,
+    "name": "Monstera Deliciosa",
+    "image": "./seed/images/8.jpg",
+    "description": "A trendy plant with unique split leaves, adding a touch of tropical flair.",
+    "price": 349.99,
+    "light": "Bright, indirect light",
+    "care": "Keep soil consistently moist",
+    "height": "Up to 2-3 feet"
+  },
+  {
+    "id":9,
+    "name": "Succulent Collection",
+    "image": "./seed/images/9.jpg",
+    "description": "Assorted colorful succulents in a beautiful arrangement.",
+    "price": 279.99,
+    "light": "Bright, direct light",
+    "care": "Allow soil to dry between waterings",
+    "height": "Varies by succulent type"
+  },
+  {
+    "id":10,
+    "name": "Bamboo Palm",
+    "image": "./seed/images/10.jpg",
+    "description": "A palm plant with feathery, green fronds, perfect for brightening indoor spaces.",
+    "price": 449.99,
+    "light": "Indirect light",
+    "care": "Keep soil consistently moist",
+    "height": "Up to 4-6 feet"
+  },
+  {
+    "id":11,
+    "name": "Echeveria",
+    "image": "./seed/images/11.jpg",
+    "description": "A rosette-forming succulent with fleshy, colorful leaves.",
+    "price": 189.99,
+    "light": "Bright, indirect light",
+    "care": "Allow soil to dry between waterings",
+    "height": "Varies by succulent type"
+  },
+  {
+    "id":12,
+    "name": "Rubber Plant",
+    "image": "./seed/images/12.jpg",
+    "description": "A popular indoor plant with glossy, burgundy-colored leaves.",
+    "price": 319.99,
+    "light": "Bright, indirect light",
+    "care": "Water when top inch of soil is dry",
+    "height": "Up to 6 feet"
+  },
+  {
+    "id":13,
+    "name": "Money Plant",
+    "image": "./seed/images/13.jpg",
+    "description": "A common houseplant with heart-shaped leaves, believed to bring good luck and wealth.",
+    "price": 209.99,
+    "light": "Low to bright indirect light",
+    "care": "Allow soil to dry between waterings",
+    "height": "Varies, can trail several feet"
+  },
+  {
+    "id":14,
+    "name": "Yellow Flower",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaVto9q3Zg1jajtOvyl0oOXhkn9d9HFVyuQ&usqp=CAU",
+    "description": "A popular indoor plant with glossy, burgundy-colored leaves.",
+    "price": 319.99,
+    "light": "Bright, indirect light",
+    "care": "Water when top inch of soil is dry",
+    "height": "Up to 6 feet"
+  }
+]

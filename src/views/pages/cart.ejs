@@ -1,0 +1,74 @@
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet" href="../../seed/style/cart.css">
+</head>
+
+<body>
+    <div class="cart_container">
+        <h2>Your Plants</h2>
+        <div class="cart_items" id="cartContainer"></div>
+    </div>
+
+    <script>
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const plantsData = <%- JSON.stringify(plants) %>;
+
+        function getcart() {
+            const matchingPlants = [];
+            cart.forEach(cartItem => {
+                const matchingPlant = plantsData.find(plant => plant.id === cartItem);
+                if (matchingPlant) {
+                    matchingPlants.push(matchingPlant);
+                }
+            });
+            console.log(matchingPlants);
+            return matchingPlants;
+        }
+
+        const cartItems = getcart();
+
+
+        function updateCartDisplay() {
+            const cartContainer = document.getElementById('cartContainer');
+
+            cartContainer.innerHTML = '';
+
+            cartItems.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.className = 'cart-item';
+
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'image-container'; // Add a class for styling
+
+                const itemImage = document.createElement('img');
+                itemImage.src = item.image;
+                itemImage.alt = 'Plant Image';
+
+                imageContainer.appendChild(itemImage);
+
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'cart_details';
+
+                const nameParagraph = document.createElement('p');
+                nameParagraph.innerHTML = `<strong>Name:</strong> ${item.name}`;
+
+                const priceParagraph = document.createElement('p');
+                priceParagraph.innerHTML = `<strong>Price:</strong> &#8377;${item.price.toFixed(2)}`;
+
+                const quantityParagraph = document.createElement('p');
+                quantityParagraph.innerHTML = `<strong>Quantity:</strong>1`;
+
+                detailsDiv.appendChild(nameParagraph);
+                detailsDiv.appendChild(priceParagraph);
+                detailsDiv.appendChild(quantityParagraph);
+
+                cartItemDiv.appendChild(imageContainer);
+                cartItemDiv.appendChild(detailsDiv);
+
+                cartContainer.appendChild(cartItemDiv);
+            });
+        }
+
+        updateCartDisplay();
+    </script>
+</body>

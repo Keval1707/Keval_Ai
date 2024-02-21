@@ -1,0 +1,87 @@
+<style>
+    .navbar {
+        background-color: #2a4b2a;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100dvw;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar .logo a ,
+    .navbar .logo  {
+        color: #fff;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+    }
+
+    .navbar .nav-links a ,
+    .navbar .nav-links p {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+    }
+
+    .navbar .nav-links a:last-child {
+        margin-right: 3rem;
+    }
+
+    .navbar .nav-links p:hover ,
+    .navbar .nav-links a:hover {
+        border-bottom: 2px solid #fff;
+    }
+
+    body {
+        padding-top: 80px;
+        margin: 0;
+    }
+
+    .cart {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+    }
+</style>
+
+
+<nav class="navbar">
+    <div class="logo">
+        <a href="/">Shree Hari Nursery</a>
+    </div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a id="cartToggle">Cart</a>
+    </div>
+</nav>
+
+<div class="cart" id="cartContent">
+    <%- include('cart') %>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var cartToggle = document.getElementById('cartToggle');
+        var cartContent = document.getElementById('cartContent');
+
+        cartToggle.addEventListener('click', function() {
+            if (cartContent.style.display === 'none' || cartContent.style.display === '') {
+                cartContent.style.display = 'block';
+            } else {
+                cartContent.style.display = 'none';
+            }
+        });
+    });
+</script>

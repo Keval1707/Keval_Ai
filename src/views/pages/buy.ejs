@@ -1,0 +1,77 @@
+<!-- views/buy.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now - Shree Hari Nursery</title>
+    <link rel="stylesheet" href="../../seed/style/buy.css">
+</head>
+
+<body>
+    <nav>
+        <%- include('navbar') %>
+    </nav>
+    <div class="header">
+        <h1>Buy Now</h1>
+    </div>
+
+    <div class="container">
+        <div class="info">
+
+            <h2>Plant Information</h2>
+            <p><strong>Name: </strong> <%= plant.name %>
+            </p>
+            <p><strong>Price: </strong> &#8377;<%= plant.price.toFixed(2) %>
+            </p>
+            <p><strong>Light:</strong>
+                <%= plant.light %>
+            </p>
+            <p><strong>Height:</strong>
+                <%= plant.height %>
+            </p>
+        </div>
+        <form method="post" onsubmit="submitForm(event)">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Shipping Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <button type="submit">Confirm Purchase</button>
+        </form>
+        <!-- Success Message -->
+        <div id="successMessage" style="display: none; color: green; margin-top: 10px;">
+            <p>Thank you for your purchase! Your order has been confirmed.</p>
+        </div>
+    </div>
+    <script>
+        async function submitForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+    
+            const formData = {
+                name: name,
+                address: address
+            };
+    
+            console.log('Form submitted with the following data:');
+            console.log(JSON.stringify(formData, null, 2));
+    
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+    
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+                window.location.href = '/';
+            }, 3000);
+            
+        }
+    </script>
+    
+</body>
+
+</html>

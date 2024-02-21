@@ -1,0 +1,75 @@
+/* views/addProduct.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f9f1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}   
+.container {
+    max-width: 600px;
+    margin: 20px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #2a4b2a;
+    margin-bottom: 20px;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+label {
+    color: #2a4b2a;
+    font-weight: bold;
+}
+
+/* Two columns in one row */
+form div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+button {
+    grid-column: span 2; /* Make the button span both columns */
+    background-color: #2a4b2a;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #1e3b1e;
+}
