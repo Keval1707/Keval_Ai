@@ -13,19 +13,19 @@ Before you begin, make sure you have the following installed on your machine:
 ## Getting Started
 
 Follow these steps to get the project up and running on your local machine:
-
-1. Clone the repository:
+1. Open terminal (Command Prompt on Windows):
+   ```bash
+   Win + R and enter cmd
+3. Clone the repository:
    ```bash
    git clone https://github.com/Keval1707/Shree_Hari_Nursery
-2. Navigate into the project directory:
-
+4. Navigate into the project directory:
    ```bash
    cd Shree_Hari_Nursery
-3. Add nodemon as a development dependency:
-
+5. Add nodemon as a development dependency:
    ```bash
    yarn add nodemon --dev
-4. Start the development server:
+6. Start the development server:
    ```bash
    yarn dev
 Now, you should have the Shree Hari Nursery project up and running on your local machine. Open your browser and navigate to http://localhost:5000 (or the port you specified in the .env file) to see the application.
