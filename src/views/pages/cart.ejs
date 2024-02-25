@@ -13,20 +13,16 @@
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const plantsData = <%- JSON.stringify(plants) %>;
 
-        function getcart() {
-            const matchingPlants = [];
-            cart.forEach(cartItem => {
-                const matchingPlant = plantsData.find(plant => plant.id === cartItem);
-                if (matchingPlant) {
-                    matchingPlants.push(matchingPlant);
-                }
-            });
-            console.log(matchingPlants);
-            return matchingPlants;
-        }
-
+        // Ensure getcart is called only once
         const cartItems = getcart();
 
+        function getcart() {
+            const uniquePlantIds = [...new Set(cart)]; // Get unique plant IDs from cart
+            const matchingPlants = uniquePlantIds.map(plantId => {
+                return plantsData.find(plant => plant.id === plantId);
+            });
+            return matchingPlants;
+        }
 
         function updateCartDisplay() {
             const cartContainer = document.getElementById('cartContainer');
@@ -38,7 +34,7 @@
                 cartItemDiv.className = 'cart-item';
 
                 const imageContainer = document.createElement('div');
-                imageContainer.className = 'image-container'; // Add a class for styling
+                imageContainer.className = 'image-container';
 
                 const itemImage = document.createElement('img');
                 itemImage.src = item.image;
@@ -56,7 +52,8 @@
                 priceParagraph.innerHTML = `<strong>Price:</strong> &#8377;${item.price.toFixed(2)}`;
 
                 const quantityParagraph = document.createElement('p');
-                quantityParagraph.innerHTML = `<strong>Quantity:</strong>1`;
+                const quantity = getQuantityInCart(item.id);
+                quantityParagraph.innerHTML = `<strong>Quantity:</strong> ${quantity}`;
 
                 detailsDiv.appendChild(nameParagraph);
                 detailsDiv.appendChild(priceParagraph);
@@ -67,6 +64,10 @@
 
                 cartContainer.appendChild(cartItemDiv);
             });
+        }
+
+        function getQuantityInCart(plantId) {
+            return cart.filter(item => item === plantId).length;
         }
 
         updateCartDisplay();

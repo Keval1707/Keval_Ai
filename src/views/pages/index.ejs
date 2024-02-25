@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../seed/style/index.css">
 </head>
 
-<body onload="getcart()">
+<body>
     <nav>
         <%- include('navbar') %>
     </nav>
@@ -19,13 +19,14 @@
     </div>
 
     <div class="container">
-        <% plants.forEach(plant => { %>
+        <% plants.forEach(plant=> { %>
             <div class="plant-card">
                 <img src="<%= plant.image %>" alt="<%= plant.name %>">
                 <h2>
                     <%= plant.name %>
                 </h2>
-                <p class="price">&#8377;<%= plant.price.toFixed(2) %></p>
+                <p class="price">&#8377;<%= plant.price.toFixed(2) %>
+                </p>
 
                 <p>
                     <%= plant.description %>
@@ -34,7 +35,8 @@
                     <h2>
                         <%= plant.name %>
                     </h2>
-                    <p class="price">&#8377;<%= plant.price.toFixed(2) %></p>
+                    <p class="price">&#8377;<%= plant.price.toFixed(2) %>
+                    </p>
 
                     <p>
                         <%= plant.description %>
@@ -58,67 +60,54 @@
                     </p>
                 </div>
             </div>
-        <% }); %>
+            <% }); %>
     </div>
 
+<!-- ... (previous HTML code) ... -->
 
-    <script>
-        function getcart() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            console.log(cart);
-            updateCartQuantityDisplay();
-        }
+<script>
+    window.onload = function() {
+        <% plants.forEach(plant => { %>
+            getnum(<%= plant.id %>);
+        <% }); %>
+        updateCartQuantityDisplay(); // Update cart quantity on page load
+    };
 
-        function updateCartQuantityDisplay() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const plantIds = [<%- plants.map(plant => plant.id).join(',') %>];
+    function updateCartQuantityDisplay() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const plantIds = [<%- plants.map(plant => plant.id).join(',') %>];
+        plantIds.forEach(plantId => {
+            const quantitySpan = document.getElementById('quantity_' + plantId);
+            const quantity = cart.reduce((count, item) => (item === plantId ? count + 1 : count), 0);
+            quantitySpan.textContent = quantity;
+        });
+    }
 
-    plantIds.forEach(plantId => {
-        const quantitySpan = document.getElementById('quantity_' + plantId);
-        const quantity = cart.reduce((count, item) => (item.id === plantId ? count + 1 : count), 0);
-        quantitySpan.textContent = quantity;
-    });
+    function getnum(id){
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    }
 
-}
+    function increaseQuantity(plantId) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(plantId);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartQuantityDisplay();
+    }
 
-
-        function checkcart(plantId) {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            if (cart.includes(plantId)) {
-                console.log("This item is in the cart");
-            } else {
-                console.log("This item is not in the cart");
-            }
-        }
-
-        // function addtocart(plantId) {
-        //     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        //     cart.push(plantId);
-        //     localStorage.setItem('cart', JSON.stringify(cart));
-        //     updateCartQuantityDisplay();
-        // }
-
-        function increaseQuantity(plantId) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push(plantId);
+    function decreaseQuantity(plantId) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const index = cart.indexOf(plantId);
+        if (index !== -1) {
+            cart.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartQuantityDisplay();
         }
+    }
 
-        function decreaseQuantity(plantId) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const index = cart.indexOf(plantId);
-            if (index !== -1) {
-                cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartQuantityDisplay();
-            }
-        }
-
-        function redirectToBuy(plantId) {
-            window.location.href = '/buy?id=' + plantId;
-        }
-    </script>
+    function redirectToBuy(plantId) {
+        window.location.href = '/buy?id=' + plantId;
+    }
+</script>
 </body>
 
 </html>
