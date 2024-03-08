@@ -25,6 +25,5 @@ const router = require('./src/routes/router');
 app.use('/', router);
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
     console.log(`http://localhost:${port}/`);
 });
