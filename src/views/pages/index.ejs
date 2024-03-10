@@ -63,14 +63,12 @@
             <% }); %>
     </div>
 
-<!-- ... (previous HTML code) ... -->
-
 <script>
     window.onload = function() {
         <% plants.forEach(plant => { %>
             getnum(<%= plant.id %>);
         <% }); %>
-        updateCartQuantityDisplay(); // Update cart quantity on page load
+        updateCartQuantityDisplay();
     };
 
     function updateCartQuantityDisplay() {
@@ -108,6 +106,11 @@
         window.location.href = '/buy?id=' + plantId;
     }
 </script>
+<footer>
+
+    <%- include('footer') %>
+</footer>
+
 </body>
 
 </html>

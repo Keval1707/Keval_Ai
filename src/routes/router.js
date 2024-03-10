@@ -9,6 +9,9 @@ const aboutUsData = require('../seed/locales/gu.json');
 router.get('/', (req, res) => {
     res.render('pages/index', { plants: plantsData });
 });
+// router.get('/home', (req, res) => {
+//     res.render('pages/home', { plants: plantsData });
+// });
 
 router.get('/about', (req, res) => {
     res.render('pages/about', { content: aboutUsData, plants: plantsData });
